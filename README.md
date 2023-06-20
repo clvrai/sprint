@@ -7,9 +7,9 @@
 <sup>2</sup>KAIST
 
 
-<a href="docs/images/sprint.png">
+<a href="docs/static/images/sprint.png">
 <p align="center">
-<img src="docs/images/sprint.png" width="800">
+<img src="docs/static/images/sprint.png" width="800">
 </p>
 </img></a>
 
