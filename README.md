@@ -1,5 +1,5 @@
 # SPRINT: Scalable Semantic Policy Pre-training via Language Instruction Relabeling
-[[Project Website]](https://clvrai.github.io/sprint/) [[Paper]](https://arxiv.org/abs/)
+[[Project Website]](https://clvrai.github.io/sprint/) [[Paper]](https://arxiv.org/abs/2306.11886)
 
 [Jesse Zhang](https://jesbu1.github.io/)<sup>1</sup>, [Karl Pertsch](https://kpertsch.github.io/)<sup>1</sup>, [Jiahui Zhang](https://jiahui-3205.github.io/)<sup>1</sup>, [Joseph J. Lim](https://clvrai.com/web_lim/)<sup>2</sup>
 
@@ -16,3 +16,15 @@
 This is the official PyTorch implementation of the paper "**SPRINT: Scalable Semantic Policy Pre-training via Language Instruction Relabeling**"
 
 CODE coming soon!
+
+
+```
+@misc{zhang2023sprint,
+      title={SPRINT: Scalable Policy Pre-Training via Language Instruction Relabeling}, 
+      author={Jesse Zhang and Karl Pertsch and Jiahui Zhang and Joseph J. Lim},
+      year={2023},
+      eprint={2306.11886},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO}
+}
+```
