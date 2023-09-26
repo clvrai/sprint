@@ -19,12 +19,10 @@ CODE coming soon!
 
 
 ```
-@misc{zhang2023sprint,
+@article{zhang2023sprint,
       title={SPRINT: Scalable Policy Pre-Training via Language Instruction Relabeling}, 
       author={Jesse Zhang and Karl Pertsch and Jiahui Zhang and Joseph J. Lim},
       year={2023},
-      eprint={2306.11886},
-      archivePrefix={arXiv},
-      primaryClass={cs.RO}
+      journal={arXiv preprint arXiv:2306.11886},
 }
 ```
