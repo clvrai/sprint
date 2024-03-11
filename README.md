@@ -59,10 +59,11 @@ export SPRINT=[SPRINT_DOWNLOAD_LOCATION]
 ```
 
 ## 2. Downloading the data
+### 2.1 Model Training Data
 You need to pre-train models to run zero-shot or finetuning experiments. 
 If you don't want to pre-train a model yourself, you can skip to step 3 as you don't need the pre-training dataset file. 
 
-We have two options for obtaining the ALFRED dataset---either download the data from here: [Google Drive Link](https://drive.google.com/file/d/1ZgKDgG9Fv491GVb9rxIVNJpViPNKFWMF) or set it up yourself with the instructions in the [README in the `datasets` folder](datasets/README.md).
+Download the ALFRED dataset here: [Google Drive Link](https://drive.google.com/file/d/1ZgKDgG9Fv491GVb9rxIVNJpViPNKFWMF).
 
 You can use [Gdown](https://github.com/wkentaro/gdown) to directly download the dataset to your server/computer at the desired location (18GB download):
 ```
@@ -78,6 +79,15 @@ Once the dataset is downloaded (`px_llama_13b.tar.gz`) simply untar it (36GB aft
 ``` 
 tar -xvzf px_llama_13b.tar.gz
 ```
+### 2.2 ALFRED Evaluation Data
+To run evals and fine-tuning experiments, you must extract ALFRED evaluation data we have processed ([Google Drive Link](https://drive.google.com/file/d/1MHDrKSRmyag-DwipyLj-i-BbKU_dxbne/view)):
+
+```
+cd [SPRINT_REPO_LOCATION]
+cd sprint/alfred/data
+gdown 1MHDrKSRmyag-DwipyLj-i-BbKU_dxbne
+tar -xvzf json_2.1.0_merge_goto.tar.gz
+```
 
 ## 3. Setting up WandB
 We log using WandB. First create a wandb account if you don't already have one [here](https://wandb.ai).
@@ -87,7 +97,7 @@ Finally, fill in `WANDB_ENTITY_NAME, WANDB_PROJECT_NAME` in the file `utils/wand
 
 
 ## 4. Pre-training a Model
-You can either pre-train a model yourself or download a pre-trained checkpoint. Pre-trained model checkpoints can be found here: [Google Drive Link](https://drive.google.com/file/d/1PDNX7Z1BBoB3pmeBTfOgNxe2I53kUoS0).
+You can either pre-train a model yourself or download a pre-trained checkpoint. Pre-trained model checkpoints can be found here: [Google Drive Link](https://drive.google.com/file/d/1PDNX7Z1BBoB3pmeBTfOgNxe2I53kUoS0/view).
 
 Otherwise, run the following command from the base SPRINT repo location to train our model, SPRINT:
 
@@ -150,8 +160,10 @@ Checkpoints are saved in `sprint_saved_rl_models/`
 
 To run SayCan zero-shot evals, pre-train the L-BC baseline above and then:
 ```
-TODO: coming soon
+python sprint/saycan_eval.py --model_checkpoint_dir [L-BC PATH] --env_type {eval_instruct, eval_length, eval_scene} --run_group [RUN_GROUP] --experiment_name [EXP_NAME] --llm_gpus [GPU]
 ```
+The optional `llm_gpus` flag allows you to input a comma separated list of GPU IDs to put the LLM onto since it might be too big to fit on the same GPU as the model.
+
 The 13b llama model we used is no longer available on huggingface, so to fully reproduce this you should follow the llama instructions to download LLaMA-13B. 
 Right now this script defaults to LLaMA-7B, but the empirically the performance is very similar.
 

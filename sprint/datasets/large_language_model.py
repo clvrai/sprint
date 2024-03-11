@@ -2,6 +2,7 @@ import torch
 from tqdm import tqdm
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import torch
+from threading import Lock
 from sprint.utils.utils import process_skill_strings
 
 
@@ -48,8 +49,8 @@ class LargeLanguageModel:
 
     def __init__(self, config):
         assert (
-            "opt" in config.llm_model or "gpt" in config.llm_model
-        ), "No tokenizer support for non-gpt/opt models"
+            "opt" in config.llm_model or "gpt" in config.llm_model or "llama" in config.llm_model
+        ), "No tokenizer support for non-gpt/opt/llama models"
         self.config = config
         self.llm_gpus = config.llm_gpus
         self.llm_max_new_tokens = config.llm_max_new_tokens
@@ -76,6 +77,7 @@ class LargeLanguageModel:
                 pad_token_id=self.tokenizer.eos_token_id,
                 device_map="auto",
             )
+        self.lock = Lock()
         self.next_skill_top_p = 0.9
         self.next_skill_temp = 0.8
         self.ret_tensor_type = "pt"
@@ -320,6 +322,7 @@ class LargeLanguageModel:
     ):
         second_skill_start_pos = second_skill_attn_mask.sum(-1)
         with torch.no_grad():
+            # so that even if multiple threads are using it at once, our maximium batch size won't be exceeded
             with self.lock:
                 logits = (
                     self.model(

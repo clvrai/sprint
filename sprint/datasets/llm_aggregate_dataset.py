@@ -81,7 +81,7 @@ def main():
         "--llm_model",
         type=str,
         default="decapoda-resaerch/llama-13b-hf",
-        help="which model to use for the large language model. For optimal performance, use GPT-J-6B or bigger. For speed and decent performance, opt-2.7b is fine.",
+        help="which model to use for the large language model.",
         choices=[
             "facebook/opt-125m",
             "facebook/opt-350m",

@@ -217,7 +217,6 @@ def main(config):
     )
     model_checkpoint_dir = config.model_checkpoint_dir
     print(model_checkpoint_dir)
-    config.use_llm = False  # set use llm to false so it doesn't load the LLM
     list_of_checkpoints, list_of_epochs = get_list_of_checkpoints(model_checkpoint_dir)
     # load one of the checkpoints' configs
 

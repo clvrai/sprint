@@ -11,12 +11,9 @@ from sprint.utils.data_utils import (
 )
 from sprint.utils.utils import (
     get_action_from_agent,
-    AttrDict,
     load_object_class,
-    process_skill_strings,
 )
 
-# import random
 path = "."
 
 import sys
@@ -34,15 +31,7 @@ vocab_obj_path = f"{os.environ['SPRINT']}/sprint/models/obj_cls.vocab"
 DATA_PATH = (
     f"{os.environ['SPRINT']}/sprint/alfred/data/json_2.1.0_merge_goto/preprocess"
 )
-# VISUAL_MODEL = "resnet18"
 REWARD_CONFIG_PATH = f"{os.environ['SPRINT']}/sprint/alfred/models/config/rewards.json"
-# DEFAULT_NUM_STEPS = 30
-# EVAL_STEP_RATIO = 2
-# TRAIN_STEP_RATIO = 2
-
-# global_task_args = AttrDict()
-# global_task_args.reward_config = REWARD_CONFIG
-# global_task_args.visual_model = VISUAL_MODEL
 
 
 def run_policy(
