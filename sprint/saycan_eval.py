@@ -178,8 +178,6 @@ def multiprocess_rollout(
         average_return=np.mean(rollout_returns),
         subgoal_success=np.mean(subgoal_successes),
     )
-    for key, value in extra_info.items():
-        rollout_metrics[key] = np.mean(value)
     # make a WandB table for the high level skill, ground truth sequence, predicted, completed skills
     saycan_completed_skill_data = []
     keys = [
