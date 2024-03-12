@@ -175,8 +175,8 @@ def multiprocess_rollout(
     num_env_samples = num_env_samples_list[0]
     # aggregate metrics
     rollout_metrics = dict(
-        average_return=np.mean(rollout_returns),
-        subgoal_success=np.mean(subgoal_successes),
+        eval_average_return=np.mean(rollout_returns),
+        eval_subgoal_success=np.mean(subgoal_successes),
     )
     # make a WandB table for the high level skill, ground truth sequence, predicted, completed skills
     saycan_completed_skill_data = []
