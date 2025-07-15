@@ -63,29 +63,22 @@ export SPRINT=[SPRINT_DOWNLOAD_LOCATION]
 You need to pre-train models to run zero-shot or finetuning experiments. 
 If you don't want to pre-train a model yourself, you can skip to step 3 as you don't need the pre-training dataset file. 
 
-Download the ALFRED dataset here: [Google Drive Link](https://drive.google.com/file/d/1ZgKDgG9Fv491GVb9rxIVNJpViPNKFWMF).
-
-You can use [Gdown](https://github.com/wkentaro/gdown) to directly download the dataset to your server/computer at the desired location (18GB download):
+Download the ALFRED dataset here: [HF Link](https://huggingface.co/datasets/jesbu1/boss_sprint_datasets/resolve/main/px_llama_13b.tar.gz).
 ```
 cd [SPRINT_REPO_LOCATION]
 mkdir data
 cd data
-pip3 install gdown
-gdown 1ZgKDgG9Fv491GVb9rxIVNJpViPNKFWMF
-```
-
-Once the dataset is downloaded (`px_llama_13b.tar.gz`) simply untar it (36GB after extraction): 
-
-``` 
+[DOWNLOAD IT HERE]
 tar -xvzf px_llama_13b.tar.gz
 ```
+
 ### 2.2 ALFRED Evaluation Data
-To run evals and fine-tuning experiments, you must extract ALFRED evaluation data we have processed ([Google Drive Link](https://drive.google.com/file/d/1MHDrKSRmyag-DwipyLj-i-BbKU_dxbne/view)):
+To run evals and fine-tuning experiments, you must extract ALFRED evaluation data we have processed ([HF Link](https://huggingface.co/datasets/jesbu1/boss_sprint_datasets/resolve/main/json_2.1.0_merge_goto.tar.gz)):
 
 ```
 cd [SPRINT_REPO_LOCATION]
 cd sprint/alfred/data
-gdown 1MHDrKSRmyag-DwipyLj-i-BbKU_dxbne
+[DOWNLOAD IT HERE]
 tar -xvzf json_2.1.0_merge_goto.tar.gz
 ```
 
@@ -97,7 +90,7 @@ Finally, fill in `WANDB_ENTITY_NAME, WANDB_PROJECT_NAME` in the file `utils/wand
 
 
 ## 4. Pre-training a Model
-You can either pre-train a model yourself or download a pre-trained checkpoint. Pre-trained model checkpoints can be found here: [Google Drive Link](https://drive.google.com/file/d/1PDNX7Z1BBoB3pmeBTfOgNxe2I53kUoS0/view).
+You can either pre-train a model yourself or download a pre-trained checkpoint. Pre-trained model checkpoints can be found here: [HF Link](https://huggingface.co/datasets/jesbu1/boss_sprint_datasets/resolve/main/SPRINT_release_pretrained_models.tar.gz).
 
 Otherwise, run the following command from the base SPRINT repo location to train our model, SPRINT:
 
