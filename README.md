@@ -197,3 +197,6 @@ If you find this work useful, please cite it:
       url={https://arxiv.org/abs/2306.11886}
 }
 ```
+
+# ACK
+This work was supported by a USC Viterbi Fellowship. Additionally, it was supported by Institute of Information & Communications Technology Planning & Evaluation (IITP) grants (No.2019-0-00075, Artificial Intelligence Graduate School Program, KAIST; No.2022-0-00077, AI Technology Development for Commonsense Extraction, Reasoning, and Inference from Heterogeneous Data), National Research Foundation of Korea (NRF) grant (NRF2021H1D3A2A03103683), funded by the Korean government (MSIT), and funded by the KAIST-NAVER hypercreative AI center.
